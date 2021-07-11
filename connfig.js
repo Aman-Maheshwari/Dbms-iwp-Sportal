@@ -1,10 +1,12 @@
 var mysql= require('mysql');
-connection=mysql.createConnection({
-    host:"localhost",
+const connection=mysql.createConnection({
+    host:"127.0.0.1",
     user:"root",
     password:"adminroot",
-    database:"sportal"
+    database:"sportal",
+    port: "3306"
 });
 
 module.exports=connection;
+
 

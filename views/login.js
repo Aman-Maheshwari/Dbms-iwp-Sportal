@@ -1,5 +1,7 @@
 
 var url=require('url');
+const connection = require('../connfig');
+
 module.exports.login=function(req,res){
         var uname=req.body.username;
         console.log("uname=",uname);
@@ -8,7 +10,7 @@ module.exports.login=function(req,res){
         var password=req.body.password;
 
         console.log("password=", password);
-        var sql="select * from aut where uname=? and password=?";
+        var sql="select * from AUT where uname=? and password=?";
 
         connection.query(sql,[uname,password],function(err,row,fields){
                 if(err)

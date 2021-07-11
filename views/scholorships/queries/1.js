@@ -1,24 +1,25 @@
 //queries in the database
 var url=require('url');
+const connection = require('../../../connfig');
 module.exports.resultS = function(req,res){
-    var sql_class='select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.schooling where class=?)';
-    var sql_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.graduations where STREAM=?)";
-    var sql_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in(select ID_NO from sportal.post_graduations where stream=?)"; 
+    var sql_class='select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.SCHOOLING where class=?)';
+    var sql_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.GRADUATIONS where STREAM=?)";
+    var sql_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in(select ID_NO from sportal.POST_GRADUATIONS where stream=?)"; 
 
-    var sql_gender="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.gender where gender=?)";
-    var sql_gender_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.gender where gender=? and ID_NO in(select ID_NO from sportal.schooling where class=? ))";
-    var sql_gender_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.gender where gender=? and ID_NO in(select ID_NO from sportal.graduations where stream=? ))";   
-    var sql_gender_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.gender where gender=? and ID_NO in(select ID_NO from sportal.post_graduations where stream=? ))";   
+    var sql_gender="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.GENDER where gender=?)";
+    var sql_gender_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.GENDER where gender=? and ID_NO in(select ID_NO from sportal.SCHOOLING where class=? ))";
+    var sql_gender_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.GENDER where gender=? and ID_NO in(select ID_NO from sportal.GRADUATIONS where stream=? ))";   
+    var sql_gender_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.GENDER where gender=? and ID_NO in(select ID_NO from sportal.POST_GRADUATIONS where stream=? ))";   
    
-    var sql_caste="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=?)";
-    var sql_caste_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.schooling where class=? ))";
-    var sql_caste_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.graduations where stream=? ))";  
-    var sql_caste_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.post_graduations where stream=? ))";   
+    var sql_caste="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=?)";
+    var sql_caste_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.SCHOOLING where class=? ))";
+    var sql_caste_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.GRADUATIONS where stream=? ))";  
+    var sql_caste_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.POST_GRADUATIONS where stream=? ))";   
     
-    var sql_caste_gender="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in (select ID_NO from sportal.gender where gender=?))";
-    var sql_caste_gender_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.gender where gender=? and ID_NO in (select ID_NO from sportal.schooling where class=?)))";
-    var sql_caste_gender_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.gender where gender=? and ID_NO in (select ID_NO from sportal.graduations where stream=? )))";
-    var sql_caste_gender_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.caste where caste=? and ID_NO in(select ID_NO from sportal.gender where gender=? and ID_NO in (select ID_NO from sportal.post_graduations where stream=? )))";
+    var sql_caste_gender="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in (select ID_NO from sportal.GENDER where gender=?))";
+    var sql_caste_gender_class="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.GENDER where gender=? and ID_NO in (select ID_NO from sportal.SCHOOLING where class=?)))";
+    var sql_caste_gender_bachelors="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.GENDER where gender=? and ID_NO in (select ID_NO from sportal.GRADUATIONS where stream=? )))";
+    var sql_caste_gender_masters="select SCHOLORSHIP_NAME,ID_NO from sportal.scholorship where ID_NO in (select ID_NO from sportal.CASTE where caste=? and ID_NO in(select ID_NO from sportal.GENDER where gender=? and ID_NO in (select ID_NO from sportal.POST_GRADUATIONS where stream=? )))";
 
     var classs=req.body.Class;
     var bach=req.body.Bachelors;

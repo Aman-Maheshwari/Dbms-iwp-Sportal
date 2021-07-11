@@ -1,7 +1,7 @@
-CREATE TABLE SPORTAL.GENDER
+CREATE TABLE sportal.GENDER
 (ID_NO INT(3) NOT NULL,
 GENDER VARCHAR(2),
-Foreign Key (ID_NO) references SPORTAL.SCHOLORSHIP(ID_NO));
+Foreign Key (ID_NO) references sportal.scholorship(ID_NO));
 
 INSERT INTO sportal.GENDER(ID_NO,GENDER) 
 values

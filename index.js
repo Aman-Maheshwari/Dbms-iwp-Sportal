@@ -125,4 +125,8 @@ app.post('/signup',urlencodedParser,signup.signup);
 
 app.listen(3000,()=>{
   console.log('listening');
+  connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 });

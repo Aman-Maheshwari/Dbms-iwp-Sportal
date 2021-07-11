@@ -1,5 +1,7 @@
 //queries in the database
 var url=require('url');
+const connection = require('../../../connfig');
+
 module.exports.search = function(req,res){
     
     if(req.session.user_name){

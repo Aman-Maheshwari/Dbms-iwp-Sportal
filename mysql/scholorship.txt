@@ -1,10 +1,10 @@
-create table SPORTAL.scholorship
+create table sportal.scholorship
 (SCHOLORSHIP_NAME VARCHAR(100) ,
 ID_NO int(4)  PRIMARY KEY);
 
 INSERT INTO sportal.scholorship (SCHOLORSHIP_NAME,ID_NO) 
 values
-('Prime Minister’s Scholarship Scheme for Central Armed Police Forces and Assam Rifles',1),
+('Prime Ministerï¿½s Scholarship Scheme for Central Armed Police Forces and Assam Rifles',1),
 ('M-Scholarship',2),
 ('SOF Scholarship of Excellence in English',3),
 ('Merck India Charitable Trust (MICT) Scholarship Program',4),
@@ -30,8 +30,8 @@ values
 ('Vel Tech Mahatma Gandhi National Merit Scholarship',24),
 ('Abdul Kalam Technology Innovation National Fellowship',25),
 ('HDFC Educational Crisis Scholarship',26),
-('Financial Assistance for Education of the Wards of Beedi/Cine/IOMC/LSDM Workers – Pre-Matric',27),
-('Financial Assistance for Education of the Wards of Beedi/Cine/IOMC/LSDM Workers – Post-Matric',28),
+('Financial Assistance for Education of the Wards of Beedi/Cine/IOMC/LSDM Workers ï¿½ Pre-Matric',27),
+('Financial Assistance for Education of the Wards of Beedi/Cine/IOMC/LSDM Workers ï¿½ Post-Matric',28),
 ('Post-Matric Scholarship for Schedule Tribe Students, Nagaland',29),
 ('National Overseas Scholarship for Minority Community Students, Karnataka',30),
 ('AMP Higher Education Scholarship Fund',31),
@@ -69,11 +69,11 @@ values
 ('Foundation for Excellence Scholarship',63),
 ('Fedbank Hormis Memorial Foundation Scholarships',64),
 ('South Indian Bank (SIB) Scholarship Scheme',65),
-('Dr. Reddy’s Foundation Sashakt Scholarship',66),
+('Dr. Reddyï¿½s Foundation Sashakt Scholarship',66),
 ('Begum Hazrat Mahal National Scholarship Scheme for Minorities Girls',67),
 ('SOF Girl Child Scholarship Scheme (G.C.S.S)',68),
-('L’Oréal India For Young Women in Science Scholarship',69),
-('UGAM – Legrand Scholarship Program',70),
+('Lï¿½Orï¿½al India For Young Women in Science Scholarship',69),
+('UGAM ï¿½ Legrand Scholarship Program',70),
 ('AICTE-Scholarship Scheme to Girl Child (SSGC) under Pragati',71),
 ('Marubeni India Meritorious Scholarship',72),
 ('Sasakawa India Leprosy Foundation Nursing Scholarship Programme',73),

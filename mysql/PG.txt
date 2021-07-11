@@ -1,7 +1,7 @@
-CREATE TABLE SPORTAL.POST_GRADUATIONS
+CREATE TABLE sportal.POST_GRADUATIONS
 (ID_NO INT(3) NOT NULL,
 STREAM VARCHAR(9),
-Foreign Key (ID_NO) references SPORTAL.SCHOLORSHIP(ID_NO));
+Foreign Key (ID_NO) references sportal.scholorship(ID_NO));
 
 
 INSERT INTO sportal.GRADUATIONS (ID_NO,STREAM) 
@@ -40,4 +40,4 @@ values
 (32,'commerce'),
 (32,'arts'),
 (32,'others'),
-(33,'commerce'),
+(33,'commerce');

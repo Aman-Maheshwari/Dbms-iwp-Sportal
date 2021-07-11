@@ -1,11 +1,12 @@
 var url=require('url');
+const connection = require('../connfig');
 module.exports.signup=function(req,res){
     var sign_uname=req.body.user;
     var sign_email=req.body.email;
     var sign_password=req.body.pass;
     var sign_rpassword=req.body.Rpass;
-    var sql_check="select * from sportal.aut where uname=?";
-    var sql_insert="insert into sportal.aut set ?";
+    var sql_check="select * from sportal.AUT where uname=?";
+    var sql_insert="insert into sportal.AUT set ?";
     console.log(sign_uname)
     req.check('email','Entered Email Is  Not Valid').isEmail();
     req.check('pass','Password must be at least 5 character long').isLength({min:5});
@@ -36,7 +37,7 @@ module.exports.signup=function(req,res){
                     "password":sign_password
                 }
                 console.log(values);
-                connection.query("insert into aut set ?",values,function(err,row1,fields){
+                connection.query("insert into AUT set ?",values,function(err,row1,fields){
                     if(err)
                     {
                         console.log("error in signup",err);
